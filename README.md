@@ -15,7 +15,7 @@ L'adozione di questa suite trasforma radicalmente l'operatività del punto vendi
 | **3. Demone di Stampa** | PC di Rete / Banco Servizi | Ricezione job da server, generazione automatica e stampa del report di consegna professionale |
 
 
-## **1. Il centro di controllo: eeb app di front-end**
+## **1. Il centro di controllo: web app di front-end**
 
 
 Il fulcro operativo dell'interazione con il commesso è un'applicazione web PWA installabile su qualsiasi smartphone (Android o iOS), concepita per essere utilizzata in mobilità e in presenza del cliente prima del passaggio in cassa.
