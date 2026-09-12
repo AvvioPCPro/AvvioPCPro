@@ -1,6 +1,6 @@
 # **AvvioPC Pro: la nuova era del deployment**
 
-**AvvioPC Pro** rappresenta l'evoluzione definitiva del primordiale *AvvioPC*, nato originariamente come un semplice script DOS per configurare automaticamente computer in ambito retail. L'intenzione era di superare le limitazioni di pacchetti commerciali come Ninite o Chocolately, prima fra tutte la necessità di lunghi download per l'installazione degli applicativi.
+**AvvioPC Pro** rappresenta l'evoluzione definitiva del primordiale *AvvioPC*, nato originariamente come un semplice script DOS per configurare automaticamente computer in ambito retail. L'intenzione era di superare le limitazioni di pacchetti commerciali come Ninite o Chocolatey, prima fra tutte la necessità di lunghi download per l'installazione degli applicativi.
 
 Ma la semplicità del primo *AvvioPC* ha rappresentato anche il suo più grande limite: l'avvento di nuovi software da installare, l'assenza di funzioni di upgrade o di reportistica e la necessità di eseguire comunque manualmente molti passaggi (OOBE, antivirus, Office), operazione che non tutti gli addetti vendita erano preparati a fare, ne ha decretato il lento ma inesorabile declino.
 
