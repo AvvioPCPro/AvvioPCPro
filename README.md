@@ -23,7 +23,7 @@ Il fulcro operativo dell'interazione con il commesso è un'applicazione web PWA 
 
 Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il supporto si genera e si aggiorna tramite un web Installer dedicato, quest'ultimo scaricabile ed installabile su un qualsiasi PC connesso ad Internet, ad esempio un notebook in esposizione.
 
-![AvvioPC Pro USB key](images/work_in_progressjpg)
+![AvvioPC Pro USB key](images/work_in_progress.jpg)
 
 * **Configurazione Automatica Zero-Touch:** È sufficiente collegare l'alimentazione al computer da configurare, inserire la chiavetta USB e accendere la macchina per saltare a piè pari tutte le noiose e lunghe schermate OOBE di Microsoft Windows 11.
 * **Provisioning Offline Integrato:** Il sistema esegue la disinstallazione pulita degli antivirus dimostrativi e procede all'installazione *unattended* della suite di applicazioni predefinite. Inietta l'account Microsoft precedentemente creato, gestisce l'attivazione di Microsoft Office, e configura l'antivirus commerciale selezionato (Unieuro Everyday Digital, Norton 360 o McAfee), forzando all'occorrenza gli aggiornamenti via Windows Update.
