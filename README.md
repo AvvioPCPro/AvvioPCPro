@@ -1,6 +1,8 @@
 # **AvvioPC Pro: la nuova era del deployment**
 
-**AvvioPC Pro** rappresenta l'evoluzione definitiva del primordiale *AvvioPC*, nato originariamente come un semplice script batch DOS per semplificare le configurazioni iniziali di computer in ambito retail. L'idea era quella di superare le limitazioni di pacchetti commerciali come Ninite o Chocolately. Prima fra tutte la caratteristica di richiedere lunghi download per l'installazione degli applicativi richiesti. Ma la semplicità del primo *AvvioPC*, pensato per una manutenzione direttamente in produzione tramite un banale editor di testo, è stata anche il suo più grande limite. L'avvento di sempre nuovi software da installare, l'assenza di funzioni di upgrade o di reportistica e la necessità di eseguire comunque in modo manuale molti passaggi (OOBE, antivirus, Office) ne hanno sancito anche i limiti.Per questo motivo nasce l'ecosistema **AvvioPC Pro**, un installer definitivo e professionale, strutturato su tre moduli fondamentali integrati.
+**AvvioPC Pro** rappresenta l'evoluzione definitiva del primordiale *AvvioPC*, nato originariamente come un semplice script batch DOS per semplificare le configurazioni iniziali di computer in ambito retail. L'idea era quella di superare le limitazioni di pacchetti commerciali come Ninite o Chocolately, prima fra tutte la caratteristica di richiedere lunghi download per l'installazione degli applicativi.
+Ma la semplicità del primo *AvvioPC*, pensato per una manutenzione direttamente in produzione tramite un banale editor di testo, è stata anche il suo più grande limite: l'avvento di sempre nuovi software da installare, l'assenza di funzioni di upgrade o di reportistica e la necessità di eseguire comunque in modo manuale molti passaggi (OOBE, antivirus, Office) ne hanno sancito anche i limiti.
+Per questo motivo nasce l'ecosistema **AvvioPC Pro**, un installer definitivo e professionale, strutturato su tre moduli perfettamente integrati.
 
 L'adozione di questa suite trasforma radicalmente l'operatività del punto vendita: l'automazione spinta azzera i tempi morti e i colli di bottiglia tecnici, garantendo un incremento immediato della produttività. Questo si traduce in una drastica riduzione dei costi occulti di configurazione e in un servizio al cliente impeccabile, elevando gli standard qualitativi e l'efficienza dell'intera azienda.
 
@@ -16,7 +18,7 @@ Il fulcro operativo dell'interazione con il commesso è un'applicazione web PWA 
 
 ![Interfaccia Web App](images/web_app.jpg)
 
-* **Acquisizione dati avanzata:** E' stato implementato un lettore barcode tramite fotocamera per associare istantaneamente il serial number (S/N) del PC. Sono altresì inclusii moduli OCR per acquisire i product key delle licenze ed iniettarli in modalità totalmente *unattended* durante il provisioning.
+* **Acquisizione dati avanzata:** E' stato implementato un lettore barcode tramite fotocamera per associare istantaneamente il serial number (S/N) del PC. Sono altresì presenti moduli OCR per acquisire i product key delle licenze ed iniettarli in modalità totalmente *unattended* durante il provisioning.
 * **Gestione zccount Microsoft (MSA):** E' presente un algoritmo di generazione automatizzata delle credenziali per i nuovi account MSA. L'operatività in presenza del cliente si rivela strategica e indispensabile per ricevere e confermare in tempo reale il PIN di verifica inviato da Microsoft sullo smartphone dell'utente.
 
 ## **2. L'Esecutore Silente: chiavetta USB zero-touch**
