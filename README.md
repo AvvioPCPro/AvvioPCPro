@@ -1,18 +1,18 @@
 # **AvvioPC Pro: la nuova era del deployment**
 
-**AvvioPC Pro** rappresenta l'evoluzione definitiva del primordiale *AvvioPC*, nato originariamente come un semplice script batch DOS per semplificare le configurazioni iniziali di computer in ambito retail. L'idea era quella di superare le limitazioni di pacchetti commerciali come Ninite o Chocolately, prima fra tutte la caratteristica di richiedere lunghi download per l'installazione degli applicativi.
+**AvvioPC Pro** rappresenta l'evoluzione definitiva del primordiale *AvvioPC*, nato originariamente come un semplice script DOS per configurare automaticamente computer in ambito retail. L'intenzione era di superare le limitazioni di pacchetti commerciali come Ninite o Chocolately, prima fra tutte la necessità di lunghi download per l'installazione degli applicativi.
 
-Ma la semplicità del primo *AvvioPC*, pensato per una manutenzione direttamente in produzione tramite un banale editor di testo, è stata anche il suo più grande limite: l'avvento di sempre nuovi software da installare, l'assenza di funzioni di upgrade o di reportistica e la necessità di eseguire comunque in modo manuale molti passaggi (OOBE, antivirus, Office), operazione che non tutti i commessi sono preparati a fare, ne hanno sancito anche i limiti.
+Ma la semplicità del primo *AvvioPC* ha rappresentato anche il suo più grande limite: l'avvento di nuovi software da installare, l'assenza di funzioni di upgrade o di reportistica e la necessità di eseguire comunque manualmente molti passaggi (OOBE, antivirus, Office), operazione che non tutti gli addetti vendita erano preparati a fare, ne ha decretato il lento ma inesorabile declino.
 
 Per questo motivo nasce l'ecosistema **AvvioPC Pro**, un installer definitivo e professionale, strutturato su tre moduli perfettamente integrati.
 
-L'adozione di questa suite trasforma radicalmente l'operatività del punto vendita: l'automazione spinta azzera i tempi morti e i colli di bottiglia tecnici, garantendo un incremento immediato della produttività. Questo si traduce in una drastica riduzione dei costi occulti di configurazione e in un servizio al cliente impeccabile, elevando gli standard qualitativi e l'efficienza dell'intera azienda.
+L'adozione di questa nuova suite trasforma radicalmente l'operatività dell'area IT: l'automazione spinta azzera i tempi morti e i colli di bottiglia tecnici, garantendo un incremento immediato della produttività. Questo si traduce in una drastica riduzione dei costi occulti di configurazione e in un servizio al cliente impeccabile, elevando gli standard qualitativi e l'efficienza dell'intera area vendita.
 
 | Modulo operativo | Piattaforma target | Obiettivo strategico e funzioni  chiave |
 | :--- | :--- | :--- |
-| **1. Web App Front-End** | Smartphone / Mobile Browser | Barcode scanner S/N, OCR Product Key, Generazione MSA & PIN client-side |
-| **2. USB Zero-Touch** | Notebook / PC in Lavorazione | Bypass OOBE, provisioning offline, installazione silent app & AV, auto-update Cloudflare |
-| **3. Demone di Stampa** | PC di Rete / Banco Servizi | Ricezione job da server, generazione automatica e stampa del report di consegna professionale |
+| **1. web app front-end** | Smartphone / Mobile Browser | Barcode scanner per S/N, OCR per product key, Generazione MSA & PIN client-side |
+| **2. USB zero-touch** | Notebook / PC in lavorazione | Bypass OOBE, provisioning offline, installazione silent app & AV, auto-update Cloudflare |
+| **3. Demone di stampa** | PC in rete / Banco Servizi | Ricezione job da server, generazione automatica e stampa del report di livello professionale |
 
 
 ## **1. Il centro di controllo: web app di front-end**
@@ -53,4 +53,4 @@ A chiudere l'architettura della suite interviene un'utility residente e auto agg
 ---
 
 > **▲ Note di sviluppo & filosofia progettuale:**
-> Questo software è stato scritto dall'autore a titolo completamente gratuito e senza fini di lucro. Limitazioni nell'installazione di software commerciale derivano dall'impossibilità di acquistare a proprie spese licenze di test, costringendo a verifiche direttamente in produzioen. Per quanto possibile si è comunque cercato di realizzare un prodotto di livello professionale, robusto e dall'utilizzo intuitivo. Un prodotto nato e pensato direttamente sul campo... **da commesso, per i commessi**.
+> Questo software è stato scritto dall'autore a titolo completamente gratuito e senza fini di lucro. Limitazioni nell'installazione di software commerciale derivano dall'impossibilità di acquistare a proprie spese licenze di test, costringendo a verifiche direttamente in produzione. Nonostante queste limitazioni, si è comunque cercato di realizzare un prodotto di livello professionale, robusto e dall'utilizzo intuitivo. Un prodotto nato e pensato direttamente sul campo... **da commesso, per i commessi**.
