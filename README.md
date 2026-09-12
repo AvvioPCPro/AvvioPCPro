@@ -8,7 +8,7 @@ Per questo motivo nasce l'ecosistema **AvvioPC Pro**, un installer definitivo e 
 
 L'adozione di questa suite trasforma radicalmente l'operatività del punto vendita: l'automazione spinta azzera i tempi morti e i colli di bottiglia tecnici, garantendo un incremento immediato della produttività. Questo si traduce in una drastica riduzione dei costi occulti di configurazione e in un servizio al cliente impeccabile, elevando gli standard qualitativi e l'efficienza dell'intera azienda.
 
-| Modulo operativo | Piattaforma garget | Obiettivo strategico e funzioni  chiave |
+| Modulo operativo | Piattaforma target | Obiettivo strategico e funzioni  chiave |
 | :--- | :--- | :--- |
 | **1. Web App Front-End** | Smartphone / Mobile Browser | Barcode scanner S/N, OCR Product Key, Generazione MSA & PIN client-side |
 | **2. USB Zero-Touch** | Notebook / PC in Lavorazione | Bypass OOBE, provisioning offline, installazione silent app & AV, auto-update Cloudflare |
