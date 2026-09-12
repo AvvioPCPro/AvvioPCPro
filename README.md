@@ -15,7 +15,7 @@ L'adozione di questa nuova suite trasforma radicalmente l'operatività dell'area
 | **3. Demone di stampa** | PC in rete / Banco Servizi | Ricezione job da server, generazione automatica e stampa del report di livello professionale |
 
 
-## **1. Il centro di controllo: web app di front-end**
+## **1. Il centro di controllo: una web app di front-end**
 
 
 Il fulcro operativo dell'interazione con il commesso è un'applicazione web PWA installabile su qualsiasi smartphone (Android o iOS), concepita per essere utilizzata in mobilità e in presenza del cliente prima del passaggio in cassa.
@@ -26,7 +26,7 @@ Il fulcro operativo dell'interazione con il commesso è un'applicazione web PWA 
 * **Acquisizione dati avanzata:** E' stato implementato un lettore barcode tramite fotocamera per associare istantaneamente il serial number (S/N) del PC. Sono altresì presenti moduli OCR per acquisire i product key delle licenze ed iniettarli in modalità totalmente *unattended* durante il provisioning.
 * **Gestione account Microsoft (MSA):** E' presente un algoritmo di generazione automatizzata delle credenziali per i nuovi account MSA. L'operatività in presenza del cliente si rivela strategica e indispensabile per ricevere e confermare in tempo reale il PIN di verifica inviato da Microsoft sullo smartphone dell'utente.
 
-## **2. L'Esecutore Silente: chiavetta USB zero-touch**
+## **2. L'esecutore silente: una chiavetta USB zero-touch**
 
 Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il supporto si genera e si aggiorna tramite un web Installer dedicato, quest'ultimo scaricabile ed installabile su un qualsiasi PC connesso ad Internet, ad esempio un notebook in esposizione.
 
@@ -40,15 +40,15 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
 
 * **Diagnostica e telemetria visiva:** Una finestra di console monitora l'avanzamento registrando ogni evento in appositi file di log. Eventuali interruzioni o anomalie vengono prontamente segnalate tramite maxi-banner visivi ad alto contrasto, leggibili anche a grande distanza nell'area di lavoro.
 
-## **3. La prova tangibile: il demone di Stampa**
+## **3. La prova tangibile: un demone di stampa**
 
-A chiudere l'architettura della suite interviene un'utility residente e auto aggiornante installabile su un qualsiasi computer connesso alla rete locale del negozio.
+A chiudere l'architettura della suite interviene un'utility residente nella tray bar e autoaggiornante. E' facilmente installabile su un qualsiasi computer connesso alla rete locale del negozio.
 
 ![Report cartaceo](images/final_report.jpg)
 
-* **Flusso di Lavoro asincrono:** Il demone lavora in background e in modo del tutto silente, rimanendo in ascolto delle chiamate provenienti dalla Web App.
-* **Generazione automatica:** Non appena i dati di configurazione vengono inviati al server centralizzato, il demone elabora le informazioni e manda automaticamente in stampa un report sintetico, elegante e professionale.
-* **Trasparenza verso il cliente:** Tale report è concepito per essere consegnata al cliente al momento del ritiro, fornendo una prova tangibile, chiara e trasparente di tutte le attività tecniche svolte sul suo computer.
+* **Flusso di Lavoro asincrono:** Il demone lavora in background e in modo del tutto silente, rimanendo in ascolto delle chiamate provenienti dalla web app.
+* **Generazione automatica:** Non appena i dati di configurazione vengono caricati in cloud, il demone elabora le informazioni e manda automaticamente in stampa un report dettagliato, elegante e professionale.
+* **Trasparenza verso il cliente:** Tale report è concepito per essere consegnato al cliente al momento del ritiro, fornendo una prova tangibile, chiara e trasparente di tutte le attività tecniche svolte sul suo computer.
 
 ---
 
