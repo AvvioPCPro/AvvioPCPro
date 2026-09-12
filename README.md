@@ -23,7 +23,7 @@ Il fulcro operativo dell'interazione con il commesso è un'applicazione web PWA 
 
 Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il supporto si genera e si aggiorna tramite un web Installer dedicato, quest'ultimo scaricabile ed installabile su un qualsiasi PC connesso ad Internet, ad esempio un notebook in esposizione.
 
-[ INSERIRE IMMAGINE NOTEBOOK USB QUI ]
+![AvvioPC Pro USB key](images/work_in_progressjpg)
 
 * **Configurazione Automatica Zero-Touch:** È sufficiente collegare l'alimentazione al computer da configurare, inserire la chiavetta USB e accendere la macchina per saltare a piè pari tutte le noiose e lunghe schermate OOBE di Microsoft Windows 11.
 * **Provisioning Offline Integrato:** Il sistema esegue la disinstallazione pulita degli antivirus dimostrativi e procede all'installazione *unattended* della suite di applicazioni predefinite. Inietta l'account Microsoft precedentemente creato, gestisce l'attivazione di Microsoft Office, e configura l'antivirus commerciale selezionato (Unieuro Everyday Digital, Norton 360 o McAfee), forzando all'occorrenza gli aggiornamenti via Windows Update.
@@ -37,7 +37,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
 
 A chiudere l'architettura della suite interviene un'utility residente e auto aggiornante installabile su un qualsiasi computer connesso alla rete locale del negozio.
 
-[ INSERIRE IMMAGINE REPORT CARTACEO QUI ]
+![Report cartaceo](images/final_report.jpg)
 
 * **Flusso di Lavoro Asincrono:** Il demone lavora in background e in modo del tutto silente, rimanendo in ascolto delle chiamate provenienti dalla Web App.
 * **Generazione Automatica:** Non appena i dati di configurazione vengono inviati al server centralizzato, il demone elabora le informazioni e manda automaticamente in stampa un report sintetico, elegante e professionale.
