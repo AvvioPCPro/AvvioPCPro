@@ -2,7 +2,7 @@
 
 **AvvioPC Pro** rappresenta l'evoluzione definitiva del primordiale *AvvioPC*, nato originariamente come un semplice script batch DOS per semplificare le configurazioni iniziali di computer in ambito retail. L'idea era quella di superare le limitazioni di pacchetti commerciali come Ninite o Chocolately, prima fra tutte la caratteristica di richiedere lunghi download per l'installazione degli applicativi.
 
-Ma la semplicità del primo *AvvioPC*, pensato per una manutenzione direttamente in produzione tramite un banale editor di testo, è stata anche il suo più grande limite: l'avvento di sempre nuovi software da installare, l'assenza di funzioni di upgrade o di reportistica e la necessità di eseguire comunque in modo manuale molti passaggi (OOBE, antivirus, Office) ne hanno sancito anche i limiti.
+Ma la semplicità del primo *AvvioPC*, pensato per una manutenzione direttamente in produzione tramite un banale editor di testo, è stata anche il suo più grande limite: l'avvento di sempre nuovi software da installare, l'assenza di funzioni di upgrade o di reportistica e la necessità di eseguire comunque in modo manuale molti passaggi (OOBE, antivirus, Office), operazione che non tutti i commessi sono preparati a fare, ne hanno sancito anche i limiti.
 
 Per questo motivo nasce l'ecosistema **AvvioPC Pro**, un installer definitivo e professionale, strutturato su tre moduli perfettamente integrati.
 
@@ -32,7 +32,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
 
 ![AvvioPC Pro USB key](images/work_in_progress.jpg)
 
-* **Configurazione automatica zero-touch:** È sufficiente collegare l'alimentazione al computer da configurare, inserire la chiavetta USB e accendere la macchina per saltare a piè pari tutte le noiose e lunghe schermate OOBE di Microsoft Windows 11.
+* **Configurazione automatica zero-touch:** È sufficiente collegare l'alimentazione al computer da configurare, inserire la chiavetta USB e accendere la macchina per saltare a piè pari tutte le innumerevoli schermate OOBE di Microsoft Windows 11.
 * **Provisioning offline integrato:** Il sistema esegue la disinstallazione pulita degli antivirus dimostrativi e procede all'installazione *unattended* della suite di applicazioni predefinite. Inietta l'account Microsoft precedentemente creato, gestisce l'attivazione di Microsoft Office, e configura l'antivirus commerciale selezionato (Unieuro Everyday Digital, Norton 360 o McAfee), forzando all'occorrenza gli aggiornamenti via Windows Update.
 * **Sincronizzazione via cloud autoaggiornante:** Al termine delle lavorazioni, il software verifica la presenza di nuove release del pacchetto sui server Cloudflare R2 e scarica autonomamente gli aggiornamenti (questa funzionalità prevede un bypass rapido in caso di consegne urgenti).
 
