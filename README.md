@@ -14,7 +14,7 @@ L'adozione di questa suite trasforma radicalmente l'operatività del punto vendi
 
 Il fulcro operativo dell'interazione con il commesso è un'applicazione web PWA installabile su qualsiasi smartphone (Android o iOS), concepita per essere utilizzata in mobilità e direttamente davanti cliente prima del passaggio in cassa.
 
-[ INSERIRE IMMAGINE WEB APP QUI ]
+![Interfaccia Web App](images/web_app.jpg)
 
 * **Acquisizione Dati Avanzata:** Integra un lettore barcode tramite fotocamera per associare istantaneamente il Serial Number (S/N) del PC. Include moduli OCR per acquisire i product key delle licenze ed iniettarli in modalità totalmente *unattended* durante il provisioning.
 * **Gestione Account Microsoft (MSA):** Dispone di un algoritmo di generazione automatizzata delle credenziali per i nuovi account MSA. L'operatività in presenza del cliente si rivela strategica e indispensabile per ricevere e confermare in tempo reale il PIN di verifica inviato da Microsoft sullo smartphone dell'utente.
