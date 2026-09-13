@@ -1,8 +1,8 @@
 # **AvvioPC Pro: la nuova era del deployment**
 
-**AvvioPC Pro** rappresenta l'evoluzione definitiva del primordiale *AvvioPC*, nato originariamente come un semplice script DOS per configurare automaticamente computer in ambito retail. L'intenzione era di superare le limitazioni di pacchetti commerciali come Ninite o Chocolatey, prima fra tutte la necessità di lunghi download per l'installazione degli applicativi.
+**AvvioPC Pro** rappresenta l'evoluzione definitiva del primordiale *AvvioPC*, nato originariamente come un semplice script DOS per configurare computer in ambito retail. L'obiettivo di quel primordiale script era di superare le limitazioni di pacchetti commerciali come Ninite o Chocolatey, prima fra tutte la necessità di lunghi download per l'installazione degli applicativi.
 
-Ma la semplicità del primo *AvvioPC* ha rappresentato anche il suo più grande limite: l'avvento di nuovi software da installare, l'assenza di funzioni di aggiornamento automatico o di reportistica integrata e la necessità di eseguire comunque manualmente molti passaggi (OOBE, antivirus, Office), passaggi che non tutti gli addetti vendita erano preparati a fare, ne hanno decretato il lento ma inesorabile declino.
+La semplicità del primo *AvvioPC* ha rappresentato anche il suo più grande limite: l'avvento di nuovi software da installare, l'assenza di funzioni di aggiornamento automatico o di reportistica integrata e -soprattutto- la necessità di eseguire manualmente molti passaggi (OOBE, antivirus, Office), secondo procedure che non tutti gli addetti vendita erano preparati a fare, ne hanno decretato il lento ma inesorabile declino.
 
 Per questo motivo nasce l'ecosistema **AvvioPC Pro**, un installer definitivo e professionale, strutturato su tre moduli perfettamente integrati.
 
@@ -40,9 +40,9 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
 
 * **Diagnostica e telemetria visiva:** Una finestra di console monitora l'avanzamento registrando ogni evento in appositi file di log. Eventuali interruzioni o anomalie vengono prontamente segnalate tramite maxi-banner visivi ad alto contrasto, leggibili anche a grande distanza nell'area di lavoro.
 
-## **3. La prova tangibile: un demone di stampa**
+## **3. La prova tangibile: un "demone" di stampa**
 
-A chiudere l'architettura della suite interviene un'utility residente nella tray bar e autoaggiornante. E' facilmente installabile su un qualsiasi computer connesso alla rete locale del negozio.
+A chiudere l'architettura della suite interviene un'utility (tecnicamente chiamata "demone") residente nella tray bar e autoaggiornante. E' facilmente installabile su un qualsiasi computer connesso alla rete locale del negozio.
 
 ![Report cartaceo](images/final_report.jpg)
 
