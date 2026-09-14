@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AvvioPC Pro - Signature</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f9; color: #333; }
+        .card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 400px; margin: 0 auto; }
+        h2 { color: #0056b3; font-size: 1.2em; }
+        p { font-size: 0.9em; line-height: 1.5; color: #555; }
+        .btn { display: block; width: 100%; padding: 15px; background: #0056b3; color: white; border: none; border-radius: 5px; font-size: 1em; margin-top: 20px; cursor: pointer; }
+        .btn-clear { background: #dc3545; margin-top: 10px; }
+        
+        /* UI State toggles */
+        #signature-section { display: none; }
+        
+        /* Canvas styling */
+        canvas { border: 2px dashed #ccc; background: #fff; width: 100%; height: 200px; touch-action: none; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <!-- DISCLAIMER VIEW -->
+    <div id="disclaimer-section" class="card">
+        <h2>Informativa Trattamento Dati</h2>
+        <p>Il sottoscritto acconsente al trattamento dei dati personali per le finalità di configurazione software e backup/trasferimento dati, come da modulo "AvvioPC Pro".</p>
+        <p>I dati raccolti (inclusa la presente firma) verranno <strong>criptati istantaneamente</strong> e conservati sui server aziendali in ottemperanza alle normative GDPR.</p>
+        <button class="btn" onclick="showSignaturePad()">Ho letto e accetto - Procedi alla firma</button>
+    </div>
+
+    <!-- SIGNATURE VIEW -->
+    <div id="signature-section" class="card">
+        <h2>Apponi la tua firma</h2>
+        <p style="text-align: center; font-size: 0.8em; color: #888;">Usa il dito all'interno del riquadro</p>
+        
+        <canvas id="sigCanvas"></canvas>
+        
+        <button class="btn" onclick="saveDemo()">Conferma Firma</button>
+        <button class="btn btn-clear" onclick="clearCanvas()">Cancella e Riprova</button>
+    </div>
+
+    <script>
+        // DOM Elements setup
+        const canvas = document.getElementById('sigCanvas');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+
+        // Resize canvas to fit the container dynamically
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.clientWidth - 40; 
+            canvas.height = 200;
+        }
+
+        // Switch UI from Disclaimer to Canvas
+        function showSignaturePad() {
+            document.getElementById('disclaimer-section').style.display = 'none';
+            document.getElementById('signature-section').style.display = 'block';
+            resizeCanvas();
+        }
+
+        // Canvas drawing logic (Mouse & Touch events)
+        function startPosition(e) {
+            isDrawing = true;
+            draw(e);
+        }
+
+        function endPosition() {
+            isDrawing = false;
+            ctx.beginPath();
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            e.preventDefault(); // Prevent scrolling on mobile while signing
+            
+            // Get proper coordinates for both touch and mouse
+            const rect = canvas.getBoundingClientRect();
+            let clientX = e.clientX || e.touches[0].clientX;
+            let clientY = e.clientY || e.touches[0].clientY;
+
+            ctx.lineWidth = 3;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = '#000000';
+
+            ctx.lineTo(clientX - rect.left, clientY - rect.top);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(clientX - rect.left, clientY - rect.top);
+        }
+
+        // Event listeners for drawing
+        canvas.addEventListener('mousedown', startPosition);
+        canvas.addEventListener('mouseup', endPosition);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('touchstart', startPosition, {passive: false});
+        canvas.addEventListener('touchend', endPosition);
+        canvas.addEventListener('touchmove', draw, {passive: false});
+
+        // Clear canvas functionality
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Mockup save function for the meeting demonstration
+        function saveDemo() {
+            alert("Demo: A questo punto la firma verrebbe convertita in Base64, passata alla funzione di criptazione e inviata al foglio di calcolo.");
+            // To actually get the base64 string you would use: canvas.toDataURL();
+            location.reload(); // Reset the demo
+        }
+    </script>
+</body>
+</html>
