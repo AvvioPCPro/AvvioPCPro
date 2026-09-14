@@ -2,11 +2,15 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <!-- Blocco totale di zoom e scrolling nativo del browser -->
+    <!-- Meta tags to enforce no-caching and lock viewport -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <title>AvvioPC Pro - Signature</title>
     <style>
-        /* Setup base dello schermo (sfondo nero fuori dall'app) */
+        /* CSS Reset & Body Configuration */
         body, html { 
             margin: 0; padding: 0; 
             width: 100%; height: 100%; 
@@ -14,10 +18,10 @@
             color: #333; 
             font-family: Arial, sans-serif; 
             overflow: hidden; 
-            touch-action: none; /* Impedisce gesture di Android/iOS */
+            touch-action: none; /* Block native gestures */
         }
 
-        /* Contenitore principale ruotato matematicamente via JS */
+        /* Main wrapper. Dimensions and rotation mapped mathematically via JS */
         #app-wrapper {
             position: absolute;
             top: 0; left: 0;
@@ -25,10 +29,9 @@
             box-sizing: border-box;
             display: flex;
             padding: 15px;
-            /* width, height e transform vengono iniettati da JavaScript */
         }
 
-        /* Layout delle schermate (Cards) */
+        /* Common Card Layout */
         .card { 
             background: #fff; 
             border-radius: 12px; 
@@ -41,15 +44,15 @@
             padding: 20px;
         }
 
-        /* Schermata 1: Informativa centrata */
+        /* View 1: Disclaimer Layout */
         #disclaimer-section { justify-content: center; align-items: center; text-align: center; }
         .text-content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
         
-        /* Tipografia */
+        /* Typography */
         h2 { color: #0056b3; font-size: 1.6em; margin: 0 0 10px 0; text-align: center; }
         p { font-size: 1.1em; line-height: 1.5; color: #444; margin: 0 0 15px 0; }
 
-        /* Contenitore e Pulsanti */
+        /* Button Grids */
         .btn-group { display: flex; gap: 15px; flex: 0 0 auto; width: 100%; margin-top: 15px; }
         .btn { 
             flex: 1; padding: 16px; font-size: 1.2em; font-weight: bold;
@@ -61,15 +64,16 @@
         .btn-danger { background: #dc3545; }
         .btn:disabled { background: #aaa; cursor: not-allowed; }
 
-        /* Layout Canvas (Area di firma) */
-        #signature-section { display: none; } /* Sovrascritto a flex da JS */
+        /* View 2: Signature Layout */
+        #signature-section { display: none; } /* Toggled to 'flex' by JS */
         
+        /* Canvas Flex Container */
         .canvas-container {
-            flex: 1 1 auto; /* Occupa tutto lo spazio rimanente senza spingere via i tasti */
+            flex: 1 1 auto; 
             border: 2px dashed #0056b3; 
             border-radius: 8px;
             background: #fff;
-            position: relative; /* Fondamentale per il canvas absolute */
+            position: relative; 
             margin-top: 5px;
             box-sizing: border-box;
         }
@@ -87,10 +91,11 @@
 
     <div id="app-wrapper">
         
-        <!-- SCHERMATA 1: INFORMATIVA -->
+        <!-- DISCLAIMER SECTION -->
         <div id="disclaimer-section" class="card">
             <div class="text-content">
-                <h2>Informativa Trattamento Dati</h2>
+                <!-- Version number added to visually bypass cache confusion -->
+                <h2>Informativa Privacy (v3.0)</h2>
                 <p>Il sottoscritto acconsente al trattamento dei dati personali per le finalità di configurazione software e backup/trasferimento dati, come da modulo "AvvioPC Pro".</p>
                 <p>I dati raccolti (inclusa la presente firma) verranno <strong>criptati istantaneamente</strong> e conservati in ottemperanza al GDPR.</p>
             </div>
@@ -99,7 +104,7 @@
             </div>
         </div>
 
-        <!-- SCHERMATA 2: FIRMA -->
+        <!-- SIGNATURE SECTION -->
         <div id="signature-section" class="card">
             <h2>Apponi la tua firma qui sotto</h2>
             
@@ -126,33 +131,31 @@
         let isRotated = false;
         let lastW = 0, lastH = 0;
 
-        // Core Layout Engine: calcola dimensioni reali al netto delle barre Android
+        // Core Layout Engine: exact pixel mapping bypassing OS nav bars
         function resizeLayout() {
             const w = window.innerWidth;
             const h = window.innerHeight;
             
-            // Evita ricalcoli inutili se a comparsa/scomparsa della barra Android
             if (w === lastW && h === lastH) return;
             lastW = w; lastH = h;
 
             if (h > w) {
-                // Telefono in verticale -> Forza Landscape
+                // Portrait mode: Force Landscape via CSS matrix translation
                 isRotated = true;
                 wrapper.style.width = h + 'px';
                 wrapper.style.height = w + 'px';
-                // Calcola il centro matematico per una rotazione perfetta
-                const dx = (w - h) / 2;
-                const dy = (h - w) / 2;
-                wrapper.style.transform = `translate(${dx}px, ${dy}px) rotate(90deg)`;
+                wrapper.style.transformOrigin = 'top left';
+                // Move anchor to the right, then rotate 90deg clockwise
+                wrapper.style.transform = `translate(${w}px, 0) rotate(90deg)`;
             } else {
-                // Telefono già in orizzontale o Desktop -> Nessuna rotazione
+                // Landscape or Desktop mode
                 isRotated = false;
                 wrapper.style.width = w + 'px';
                 wrapper.style.height = h + 'px';
                 wrapper.style.transform = 'none';
             }
             
-            // Ridimensiona i pixel interni del canvas se la schermata è attiva
+            // Adjust internal canvas resolution
             if (document.getElementById('signature-section').style.display === 'flex') {
                 canvas.width = canvas.parentElement.clientWidth;
                 canvas.height = canvas.parentElement.clientHeight;
@@ -161,37 +164,37 @@
         }
 
         window.addEventListener('resize', resizeLayout);
-        resizeLayout(); // Setup iniziale
+        resizeLayout();
 
-        // Transizione UI
+        // UI State Transition
         function showSignaturePad() {
             document.getElementById('disclaimer-section').style.display = 'none';
             document.getElementById('signature-section').style.display = 'flex';
-            setTimeout(resizeLayout, 50); // Aggiorna le risoluzioni canvas
+            setTimeout(resizeLayout, 50);
         }
 
-        // Funzione per mappare le coordinate dal tocco fisico al canvas logico
+        // Coordinate mapping from physical touch to local unrotated canvas space
         function getPointerPos(e) {
-            let clientX = e.clientX;
-            let clientY = e.clientY;
+            let screenX = e.clientX;
+            let screenY = e.clientY;
             
             if (e.touches && e.touches.length > 0) {
-                clientX = e.touches[0].clientX;
-                clientY = e.touches[0].clientY;
+                screenX = e.touches[0].clientX;
+                screenY = e.touches[0].clientY;
             }
 
-            let pageX, pageY;
+            let localX, localY;
 
-            // Se forzato in orizzontale, inverte l'asse X e Y matematicamente
+            // Mathematical translation of physical vectors to logical space
             if (isRotated) {
-                pageX = clientY;
-                pageY = window.innerWidth - clientX;
+                localX = screenY;
+                localY = window.innerWidth - screenX;
             } else {
-                pageX = clientX;
-                pageY = clientY;
+                localX = screenX;
+                localY = screenY;
             }
 
-            // Calcola la posizione del canvas rispetto alla pagina
+            // Calculate canvas offset relative to wrapper (unaffected by CSS transforms)
             let el = canvas;
             let offsetX = 0;
             let offsetY = 0;
@@ -201,10 +204,10 @@
                 el = el.offsetParent;
             }
 
-            return { x: pageX - offsetX, y: pageY - offsetY };
+            return { x: localX - offsetX, y: localY - offsetY };
         }
 
-        // --- Logica di Disegno ---
+        // --- Drawing Engine ---
         function startPosition(e) {
             isDrawing = true;
             const pos = getPointerPos(e);
@@ -239,7 +242,7 @@
             ctx.moveTo(pos.x, pos.y);
         }
 
-        // Eventi Mouse / Touch
+        // Event Listeners
         canvas.addEventListener('mousedown', startPosition);
         canvas.addEventListener('mouseup', endPosition);
         canvas.addEventListener('mousemove', draw);
@@ -250,14 +253,12 @@
         canvas.addEventListener('touchmove', draw, { passive: false });
         canvas.addEventListener('touchcancel', endPosition);
 
-        // Reset
         function clearCanvas() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             hasDrawn = false;
             btnConfirm.disabled = true;
         }
 
-        // Demo Save
         function saveDemo() {
             alert("Demo: Firma acquisita con successo!");
             location.reload(); 
