@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <!-- Meta tags to enforce no-caching and lock viewport -->
+    <!-- Meta tags enforcing no-cache and strict viewport locking -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
@@ -10,7 +10,7 @@
     
     <title>AvvioPC Pro - Signature</title>
     <style>
-        /* CSS Reset & Body Configuration */
+        /* CSS Reset & strict body configuration to prevent native scrolling/bouncing */
         body, html { 
             margin: 0; padding: 0; 
             width: 100%; height: 100%; 
@@ -18,10 +18,10 @@
             color: #333; 
             font-family: Arial, sans-serif; 
             overflow: hidden; 
-            touch-action: none; /* Block native gestures */
+            touch-action: none; 
         }
 
-        /* Main wrapper. Dimensions and rotation mapped mathematically via JS */
+        /* Dynamic wrapper for mathematical rotation */
         #app-wrapper {
             position: absolute;
             top: 0; left: 0;
@@ -31,7 +31,7 @@
             padding: 15px;
         }
 
-        /* Common Card Layout */
+        /* Card container UI */
         .card { 
             background: #fff; 
             border-radius: 12px; 
@@ -44,15 +44,14 @@
             padding: 20px;
         }
 
-        /* View 1: Disclaimer Layout */
+        /* Disclaimer Section */
         #disclaimer-section { justify-content: center; align-items: center; text-align: center; }
         .text-content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
         
-        /* Typography */
         h2 { color: #0056b3; font-size: 1.6em; margin: 0 0 10px 0; text-align: center; }
         p { font-size: 1.1em; line-height: 1.5; color: #444; margin: 0 0 15px 0; }
 
-        /* Button Grids */
+        /* Buttons Setup */
         .btn-group { display: flex; gap: 15px; flex: 0 0 auto; width: 100%; margin-top: 15px; }
         .btn { 
             flex: 1; padding: 16px; font-size: 1.2em; font-weight: bold;
@@ -64,10 +63,9 @@
         .btn-danger { background: #dc3545; }
         .btn:disabled { background: #aaa; cursor: not-allowed; }
 
-        /* View 2: Signature Layout */
-        #signature-section { display: none; } /* Toggled to 'flex' by JS */
+        /* Signature Section */
+        #signature-section { display: none; } 
         
-        /* Canvas Flex Container */
         .canvas-container {
             flex: 1 1 auto; 
             border: 2px dashed #0056b3; 
@@ -94,8 +92,7 @@
         <!-- DISCLAIMER SECTION -->
         <div id="disclaimer-section" class="card">
             <div class="text-content">
-                <!-- Version number added to visually bypass cache confusion -->
-                <h2>Informativa Privacy (v3.0)</h2>
+                <h2>Informativa Privacy (v4.0)</h2>
                 <p>Il sottoscritto acconsente al trattamento dei dati personali per le finalità di configurazione software e backup/trasferimento dati, come da modulo "AvvioPC Pro".</p>
                 <p>I dati raccolti (inclusa la presente firma) verranno <strong>criptati istantaneamente</strong> e conservati in ottemperanza al GDPR.</p>
             </div>
@@ -131,7 +128,7 @@
         let isRotated = false;
         let lastW = 0, lastH = 0;
 
-        // Core Layout Engine: exact pixel mapping bypassing OS nav bars
+        // Core Layout Engine: responsive tracking of screen dimensions
         function resizeLayout() {
             const w = window.innerWidth;
             const h = window.innerHeight;
@@ -140,22 +137,21 @@
             lastW = w; lastH = h;
 
             if (h > w) {
-                // Portrait mode: Force Landscape via CSS matrix translation
+                // Portrait mode: force landscape 
                 isRotated = true;
                 wrapper.style.width = h + 'px';
                 wrapper.style.height = w + 'px';
                 wrapper.style.transformOrigin = 'top left';
-                // Move anchor to the right, then rotate 90deg clockwise
                 wrapper.style.transform = `translate(${w}px, 0) rotate(90deg)`;
             } else {
-                // Landscape or Desktop mode
+                // Landscape mode: natural rendering
                 isRotated = false;
                 wrapper.style.width = w + 'px';
                 wrapper.style.height = h + 'px';
                 wrapper.style.transform = 'none';
             }
             
-            // Adjust internal canvas resolution
+            // Sync canvas internal resolution with its physical container size
             if (document.getElementById('signature-section').style.display === 'flex') {
                 canvas.width = canvas.parentElement.clientWidth;
                 canvas.height = canvas.parentElement.clientHeight;
@@ -170,10 +166,11 @@
         function showSignaturePad() {
             document.getElementById('disclaimer-section').style.display = 'none';
             document.getElementById('signature-section').style.display = 'flex';
+            // Short delay to ensure browser paints layout before grabbing clientWidth
             setTimeout(resizeLayout, 50);
         }
 
-        // Coordinate mapping from physical touch to local unrotated canvas space
+        // Precision coordinate mapping using Client Rect bounding box
         function getPointerPos(e) {
             let screenX = e.clientX;
             let screenY = e.clientY;
@@ -183,28 +180,32 @@
                 screenY = e.touches[0].clientY;
             }
 
-            let localX, localY;
+            // Get absolute physical position and size of canvas on screen
+            const rect = canvas.getBoundingClientRect();
+            let logicalX, logicalY, scaleX, scaleY;
 
-            // Mathematical translation of physical vectors to logical space
             if (isRotated) {
-                localX = screenY;
-                localY = window.innerWidth - screenX;
+                // Map portrait physical axes to landscape logical axes
+                logicalX = screenY - rect.top;
+                logicalY = rect.right - screenX;
+                
+                // rect.height represents physical Y (mapped to logical Width)
+                scaleX = canvas.width / rect.height;
+                // rect.width represents physical X (mapped to logical Height)
+                scaleY = canvas.height / rect.width;
             } else {
-                localX = screenX;
-                localY = screenY;
+                // Direct mapping for natural landscape
+                logicalX = screenX - rect.left;
+                logicalY = screenY - rect.top;
+                
+                scaleX = canvas.width / rect.width;
+                scaleY = canvas.height / rect.height;
             }
 
-            // Calculate canvas offset relative to wrapper (unaffected by CSS transforms)
-            let el = canvas;
-            let offsetX = 0;
-            let offsetY = 0;
-            while (el && el.id !== 'app-wrapper') {
-                offsetX += el.offsetLeft;
-                offsetY += el.offsetTop;
-                el = el.offsetParent;
-            }
-
-            return { x: localX - offsetX, y: localY - offsetY };
+            return { 
+                x: logicalX * scaleX, 
+                y: logicalY * scaleY 
+            };
         }
 
         // --- Drawing Engine ---
@@ -242,7 +243,7 @@
             ctx.moveTo(pos.x, pos.y);
         }
 
-        // Event Listeners
+        // Event Listeners (Mouse & Touch mapping)
         canvas.addEventListener('mousedown', startPosition);
         canvas.addEventListener('mouseup', endPosition);
         canvas.addEventListener('mousemove', draw);
@@ -253,6 +254,7 @@
         canvas.addEventListener('touchmove', draw, { passive: false });
         canvas.addEventListener('touchcancel', endPosition);
 
+        // Core Actions
         function clearCanvas() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             hasDrawn = false;
