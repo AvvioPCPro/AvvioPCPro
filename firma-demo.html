@@ -2,131 +2,104 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <!-- Viewport configuration to prevent zooming and native scrolling -->
+    <!-- Blocco totale di zoom e scrolling nativo del browser -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AvvioPC Pro - Signature</title>
     <style>
-        /* CSS Reset and Body Setup */
+        /* Setup base dello schermo (sfondo nero fuori dall'app) */
         body, html { 
-            margin: 0; 
-            padding: 0; 
-            width: 100%; 
-            height: 100%; 
-            background: #f4f4f9; 
+            margin: 0; padding: 0; 
+            width: 100%; height: 100%; 
+            background: #222; 
             color: #333; 
             font-family: Arial, sans-serif; 
-            overflow: hidden; /* Prevent native scrolling/bounce */
-            position: fixed; /* Lock viewport */
+            overflow: hidden; 
+            touch-action: none; /* Impedisce gesture di Android/iOS */
         }
 
-        /* Landscape Wrapper positioned via JS dimensions */
-        .landscape-wrapper {
+        /* Contenitore principale ruotato matematicamente via JS */
+        #app-wrapper {
             position: absolute;
-            top: 0;
-            left: 100%;
-            transform: rotate(90deg);
-            transform-origin: top left;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-            box-sizing: border-box;
+            top: 0; left: 0;
             background: #f4f4f9;
+            box-sizing: border-box;
+            display: flex;
+            padding: 15px;
+            /* width, height e transform vengono iniettati da JavaScript */
         }
 
-        /* Flexbox Card Layout */
+        /* Layout delle schermate (Cards) */
         .card { 
             background: #fff; 
-            padding: 25px; 
-            border-radius: 15px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15); 
+            border-radius: 12px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3); 
             width: 100%; 
-            height: 100%; /* Adapts to wrapper limits */
-            max-width: 800px;
-            text-align: center; 
+            height: 100%; 
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Center disclaimer text */
+            padding: 20px;
         }
 
-        /* Enlagred Typography */
-        h2 { color: #0056b3; font-size: 1.6em; margin-top: 0; margin-bottom: 15px; }
-        p { font-size: 1.1em; line-height: 1.5; color: #444; margin-bottom: 20px; }
-
-        /* Button Grid Layout */
-        .btn-group {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            margin-top: 15px;
-        }
+        /* Schermata 1: Informativa centrata */
+        #disclaimer-section { justify-content: center; align-items: center; text-align: center; }
+        .text-content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
         
-        /* Rounded Buttons Styling */
+        /* Tipografia */
+        h2 { color: #0056b3; font-size: 1.6em; margin: 0 0 10px 0; text-align: center; }
+        p { font-size: 1.1em; line-height: 1.5; color: #444; margin: 0 0 15px 0; }
+
+        /* Contenitore e Pulsanti */
+        .btn-group { display: flex; gap: 15px; flex: 0 0 auto; width: 100%; margin-top: 15px; }
         .btn { 
-            flex: 1;
-            padding: 15px; 
-            background: #0056b3; 
-            color: white; 
-            border: none; 
-            border-radius: 30px; 
-            font-size: 1.1em; 
-            font-weight: bold;
-            cursor: pointer; 
-            transition: opacity 0.3s ease, background 0.3s ease;
+            flex: 1; padding: 16px; font-size: 1.2em; font-weight: bold;
+            border: none; border-radius: 30px; cursor: pointer; color: white;
+            transition: opacity 0.2s;
         }
-        .btn-clear { background: #6c757d; }
-        .btn-confirm { background: #28a745; }
+        .btn-primary { background: #0056b3; }
+        .btn-success { background: #28a745; }
+        .btn-danger { background: #dc3545; }
+        .btn:disabled { background: #aaa; cursor: not-allowed; }
+
+        /* Layout Canvas (Area di firma) */
+        #signature-section { display: none; } /* Sovrascritto a flex da JS */
         
-        /* Disabled Button State */
-        .btn:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            background: #999 !important;
-        }
-
-        /* UI State Toggles */
-        #signature-section { 
-            display: none; 
-            /* Overridden to 'flex' by JS when activated */
-        }
-
-        /* Dynamic Canvas Container */
         .canvas-container {
-            flex-grow: 1; /* Automatically fills available vertical space */
-            min-height: 100px; /* Safety fallback */
+            flex: 1 1 auto; /* Occupa tutto lo spazio rimanente senza spingere via i tasti */
             border: 2px dashed #0056b3; 
-            border-radius: 10px;
+            border-radius: 8px;
             background: #fff;
-            margin: 0 auto;
-            width: 100%;
+            position: relative; /* Fondamentale per il canvas absolute */
+            margin-top: 5px;
             box-sizing: border-box;
-            overflow: hidden;
-            position: relative;
         }
         
         canvas { 
-            width: 100%; 
-            height: 100%; 
-            touch-action: none; /* Disable browser touch actions over canvas */
-            display: block;
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%; 
+            touch-action: none;
+            cursor: crosshair;
         }
     </style>
 </head>
 <body>
 
-    <div id="app-wrapper" class="landscape-wrapper">
+    <div id="app-wrapper">
         
-        <!-- VIEW 1: DISCLAIMER -->
+        <!-- SCHERMATA 1: INFORMATIVA -->
         <div id="disclaimer-section" class="card">
-            <h2>Informativa Trattamento Dati</h2>
-            <p>Il sottoscritto acconsente al trattamento dei dati personali per le finalità di configurazione software e backup/trasferimento dati, come da modulo "AvvioPC Pro".</p>
-            <p>I dati raccolti (inclusa la presente firma) verranno <strong>criptati istantaneamente</strong> e conservati sui server aziendali in ottemperanza alle normative GDPR.</p>
-            <!-- Start button triggers UI change -->
-            <button class="btn" onclick="showSignaturePad()">Ho letto e accetto</button>
+            <div class="text-content">
+                <h2>Informativa Trattamento Dati</h2>
+                <p>Il sottoscritto acconsente al trattamento dei dati personali per le finalità di configurazione software e backup/trasferimento dati, come da modulo "AvvioPC Pro".</p>
+                <p>I dati raccolti (inclusa la presente firma) verranno <strong>criptati istantaneamente</strong> e conservati in ottemperanza al GDPR.</p>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="showSignaturePad()">Ho letto e accetto</button>
+            </div>
         </div>
 
-        <!-- VIEW 2: SIGNATURE PAD -->
+        <!-- SCHERMATA 2: FIRMA -->
         <div id="signature-section" class="card">
             <h2>Apponi la tua firma qui sotto</h2>
             
@@ -135,15 +108,14 @@
             </div>
             
             <div class="btn-group">
-                <button class="btn btn-clear" onclick="clearCanvas()">Cancella e Riprova</button>
-                <button id="btnConfirm" class="btn btn-confirm" onclick="saveDemo()" disabled>Conferma Firma</button>
+                <button class="btn btn-danger" onclick="clearCanvas()">Cancella</button>
+                <button id="btnConfirm" class="btn btn-success" onclick="saveDemo()" disabled>Conferma</button>
             </div>
         </div>
 
     </div>
 
     <script>
-        // DOM element references
         const wrapper = document.getElementById('app-wrapper');
         const canvas = document.getElementById('sigCanvas');
         const ctx = canvas.getContext('2d');
@@ -151,99 +123,143 @@
         
         let isDrawing = false;
         let hasDrawn = false; 
+        let isRotated = false;
+        let lastW = 0, lastH = 0;
 
-        // Fix layout dimensions to exact device pixels, bypassing OS nav bars
+        // Core Layout Engine: calcola dimensioni reali al netto delle barre Android
         function resizeLayout() {
-            // Apply actual window dimensions
-            wrapper.style.width = window.innerHeight + 'px';
-            wrapper.style.height = window.innerWidth + 'px';
+            const w = window.innerWidth;
+            const h = window.innerHeight;
             
-            // Adjust internal canvas resolution to match its calculated CSS size
-            if(document.getElementById('signature-section').style.display === 'flex') {
-                const rect = canvas.parentElement.getBoundingClientRect();
-                canvas.width = rect.width;
-                canvas.height = rect.height;
+            // Evita ricalcoli inutili se a comparsa/scomparsa della barra Android
+            if (w === lastW && h === lastH) return;
+            lastW = w; lastH = h;
+
+            if (h > w) {
+                // Telefono in verticale -> Forza Landscape
+                isRotated = true;
+                wrapper.style.width = h + 'px';
+                wrapper.style.height = w + 'px';
+                // Calcola il centro matematico per una rotazione perfetta
+                const dx = (w - h) / 2;
+                const dy = (h - w) / 2;
+                wrapper.style.transform = `translate(${dx}px, ${dy}px) rotate(90deg)`;
+            } else {
+                // Telefono già in orizzontale o Desktop -> Nessuna rotazione
+                isRotated = false;
+                wrapper.style.width = w + 'px';
+                wrapper.style.height = h + 'px';
+                wrapper.style.transform = 'none';
+            }
+            
+            // Ridimensiona i pixel interni del canvas se la schermata è attiva
+            if (document.getElementById('signature-section').style.display === 'flex') {
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = canvas.parentElement.clientHeight;
+                clearCanvas(); 
             }
         }
 
-        // Initialize layout sizes
         window.addEventListener('resize', resizeLayout);
-        resizeLayout();
+        resizeLayout(); // Setup iniziale
 
-        // Switch UI from Disclaimer to Canvas View
+        // Transizione UI
         function showSignaturePad() {
             document.getElementById('disclaimer-section').style.display = 'none';
-            // Use flex to respect the bounding constraints and keep buttons visible
-            document.getElementById('signature-section').style.display = 'flex'; 
-            
-            // Short delay to ensure CSS rendering before calculating canvas size
-            setTimeout(resizeLayout, 50);
+            document.getElementById('signature-section').style.display = 'flex';
+            setTimeout(resizeLayout, 50); // Aggiorna le risoluzioni canvas
         }
 
-        // Drawing logic initialization
+        // Funzione per mappare le coordinate dal tocco fisico al canvas logico
+        function getPointerPos(e) {
+            let clientX = e.clientX;
+            let clientY = e.clientY;
+            
+            if (e.touches && e.touches.length > 0) {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            }
+
+            let pageX, pageY;
+
+            // Se forzato in orizzontale, inverte l'asse X e Y matematicamente
+            if (isRotated) {
+                pageX = clientY;
+                pageY = window.innerWidth - clientX;
+            } else {
+                pageX = clientX;
+                pageY = clientY;
+            }
+
+            // Calcola la posizione del canvas rispetto alla pagina
+            let el = canvas;
+            let offsetX = 0;
+            let offsetY = 0;
+            while (el && el.id !== 'app-wrapper') {
+                offsetX += el.offsetLeft;
+                offsetY += el.offsetTop;
+                el = el.offsetParent;
+            }
+
+            return { x: pageX - offsetX, y: pageY - offsetY };
+        }
+
+        // --- Logica di Disegno ---
         function startPosition(e) {
             isDrawing = true;
+            const pos = getPointerPos(e);
+            ctx.beginPath();
+            ctx.moveTo(pos.x, pos.y);
             draw(e);
         }
 
-        // Drawing logic termination
         function endPosition() {
             isDrawing = false;
             ctx.beginPath();
         }
 
-        // Core drawing function handling coordinate mapping for 90deg rotation
         function draw(e) {
             if (!isDrawing) return;
-            e.preventDefault(); // Prevent accidental scrolling
+            e.preventDefault(); 
             
-            // Enable confirm button on first successful stroke
             if (!hasDrawn) {
                 hasDrawn = true;
                 btnConfirm.disabled = false;
             }
-            
-            const rect = canvas.getBoundingClientRect();
-            
-            // Extract screen coordinates for mouse or touch input
-            let clientX = e.clientX || (e.touches && e.touches[0].clientX);
-            let clientY = e.clientY || (e.touches && e.touches[0].clientY);
 
-            // Matrix translation: map screen coords to 90deg rotated canvas coords
-            let canvasX = clientY - rect.top;
-            let canvasY = rect.right - clientX;
-
+            const pos = getPointerPos(e);
+            
             ctx.lineWidth = 4;
             ctx.lineCap = 'round';
             ctx.strokeStyle = '#000000';
 
-            // Calculate path
-            ctx.lineTo(canvasX, canvasY);
+            ctx.lineTo(pos.x, pos.y);
             ctx.stroke();
             ctx.beginPath();
-            ctx.moveTo(canvasX, canvasY);
+            ctx.moveTo(pos.x, pos.y);
         }
 
-        // Attach event listeners for mouse interactions
+        // Eventi Mouse / Touch
         canvas.addEventListener('mousedown', startPosition);
         canvas.addEventListener('mouseup', endPosition);
         canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseleave', endPosition);
         
-        // Attach event listeners for touch interactions
         canvas.addEventListener('touchstart', startPosition, { passive: false });
         canvas.addEventListener('touchend', endPosition);
         canvas.addEventListener('touchmove', draw, { passive: false });
+        canvas.addEventListener('touchcancel', endPosition);
 
-        // Clear the canvas and reset button state
+        // Reset
         function clearCanvas() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             hasDrawn = false;
             btnConfirm.disabled = true;
         }
 
-        // Mockup save function triggering upon completion
+        // Demo Save
         function saveDemo() {
-            alert("Demo: Firma acquisita correttamente. Pronta per la conversione Base64 e la criptazione AES.");
+            alert("Demo: Firma acquisita con successo!");
             location.reload(); 
         }
     </script>
