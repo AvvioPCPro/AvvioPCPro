@@ -54,3 +54,6 @@ A chiudere l'architettura della suite interviene un'utility (tecnicamente chiama
 
 > **▲ Note di sviluppo & filosofia progettuale:**
 > Questo software è stato scritto dall'autore a titolo completamente gratuito e senza fini di lucro. Limitazioni nell'installazione di software commerciale derivano dall'impossibilità di acquistare a proprie spese licenze di test, costringendo a verifiche direttamente in produzione. Nonostante queste limitazioni, si è comunque cercato di realizzare un prodotto di livello professionale, robusto e dall'utilizzo intuitivo. Un prodotto nato e pensato direttamente sul campo... **da commesso, per i commessi**.
+
+## Demo area
+![QR Code Signature Demo](https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://avviopcpro.github.io/avviopcpro/firma-demo.html)
