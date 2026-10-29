@@ -76,6 +76,10 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
       <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">Ultima release CDN</td>
     </tr>
     <tr>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Microsoft WebView2 Runtime</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">vMon26Oct2026190801GMT</td>
+    </tr>
+    <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Norton Removal Tool</td>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">Ultima release CDN</td>
     </tr>
@@ -101,7 +105,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
   </tbody>
 </table>
-<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 01:56 del 29/10/2026</em></p>
+<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 02:19 del 29/10/2026</em></p>
 </div>
 
 <!-- AVVIOPC_VERSIONS_END -->
