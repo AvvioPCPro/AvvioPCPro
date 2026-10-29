@@ -37,6 +37,23 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
 * **Sincronizzazione via cloud autoaggiornante:** Al termine delle lavorazioni, il software verifica la presenza di nuove release del pacchetto sui server Cloudflare R2 e scarica autonomamente gli aggiornamenti (questa funzionalità prevede un bypass rapido in caso di consegne urgenti). Questo l'elenco dei programmi supportati e delle versioni attualmente installate:
 
 <!-- AVVIOPC_VERSIONS_START -->
+| Software | Versione |
+|---|---|
+| 7-Zip | v26.05 |
+| Acrobat Reader | v26.002.22031 |
+| AutoHotkey | v2.0.31 |
+| Firefox | v159.0 |
+| Google Chrome | v157.0.8103.27 |
+| LibreOffice | v26.8.1 |
+| McAfee Removal Tool | Ultima release CDN |
+| Norton Removal Tool | Ultima release CDN |
+| Notepad++ | v8.9.8.1 |
+| Paint.Net | v5.1.12 |
+| PDF24 | v11.31.1 |
+| Unieuro Everyday Digital | Ultima release CDN |
+| VLC | v3.0.24 |
+
+*Dati aggiornati alle 01:38 del 29/10/2026*
 <!-- AVVIOPC_VERSIONS_END -->
 
 ![AvvioPC Pro USB key](images/upgrade.jpg)
