@@ -65,11 +65,11 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Google Chrome</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v157.0.8103.27</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v156.0.8078.80</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">LibreOffice</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v26.8.1</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v26.8.2</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">McAfee Removal Tool</td>
@@ -77,7 +77,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Microsoft WebView2 Runtime</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">vMon26Oct2026190801GMT</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">vFri30Oct2026203049GMT</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Norton Removal Tool</td>
@@ -105,7 +105,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
   </tbody>
 </table>
-<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 02:19 del 29/10/2026</em></p>
+<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 09:07 del 01/11/2026</em></p>
 </div>
 
 <!-- AVVIOPC_VERSIONS_END -->
