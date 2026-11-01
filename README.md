@@ -105,7 +105,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
   </tbody>
 </table>
-<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 15:23 del 01/11/2026</em></p>
+<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 18:07 del 01/11/2026</em></p>
 </div>
 
 <!-- AVVIOPC_VERSIONS_END -->
