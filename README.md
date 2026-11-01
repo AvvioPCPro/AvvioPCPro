@@ -73,15 +73,15 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">McAfee Removal Tool</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">Ultima release CDN</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v10.5</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Microsoft WebView2 Runtime</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">vFri30Oct2026203049GMT</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v1.3.307.15</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Norton Removal Tool</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">Ultima release CDN</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v26.10.11639.0</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Notepad++</td>
@@ -97,7 +97,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Unieuro Everyday Digital</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">Ultima release CDN</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v9.3.46</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">VLC</td>
@@ -105,7 +105,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
   </tbody>
 </table>
-<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 09:07 del 01/11/2026</em></p>
+<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 15:23 del 01/11/2026</em></p>
 </div>
 
 <!-- AVVIOPC_VERSIONS_END -->
