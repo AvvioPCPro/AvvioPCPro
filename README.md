@@ -53,7 +53,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Acrobat Reader</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v26.002.22031</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v26.003.22075</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">AutoHotkey</td>
@@ -61,11 +61,11 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Firefox</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v159.0</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v159.0.1</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Google Chrome</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v156.0.8078.80</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v158.0.8127.18</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">LibreOffice</td>
@@ -93,7 +93,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">PDF24</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v11.31.1</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v11.32.0</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Unieuro Everyday Digital</td>
@@ -105,7 +105,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
   </tbody>
 </table>
-<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 18:07 del 01/11/2026</em></p>
+<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 00:42 del 05/11/2026</em></p>
 </div>
 
 <!-- AVVIOPC_VERSIONS_END -->
