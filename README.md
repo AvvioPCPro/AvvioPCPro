@@ -49,7 +49,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
   <tbody>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">7-Zip</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v26.05</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v26.06</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Acrobat Reader</td>
@@ -60,12 +60,8 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
       <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v2.0.31</td>
     </tr>
     <tr>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Firefox</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v159.0.1</td>
-    </tr>
-    <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Google Chrome</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v158.0.8127.18</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v157.0.8103.51</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">LibreOffice</td>
@@ -74,10 +70,6 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">McAfee Removal Tool</td>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v10.5</td>
-    </tr>
-    <tr>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Microsoft WebView2 Runtime</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">vTue03Nov2026132940GMT</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Norton Removal Tool</td>
@@ -105,7 +97,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
   </tbody>
 </table>
-<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 08:48 del 07/11/2026</em></p>
+<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 16:06 del 10/11/2026</em></p>
 </div>
 
 <!-- AVVIOPC_VERSIONS_END -->
