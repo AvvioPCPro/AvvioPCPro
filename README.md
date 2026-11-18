@@ -61,7 +61,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Firefox</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v160.0</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v160.0.1</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Google Chrome</td>
@@ -105,7 +105,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
   </tbody>
 </table>
-<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 01:41 del 15/11/2026</em></p>
+<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 10:15 del 18/11/2026</em></p>
 </div>
 
 <!-- AVVIOPC_VERSIONS_END -->
