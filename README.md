@@ -53,11 +53,11 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Acrobat Reader</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v26.003.22075</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v26.003.22110</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">AutoHotkey</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v2.0.31</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v2.0.32</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Firefox</td>
@@ -65,7 +65,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Google Chrome</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v158.0.8127.37</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v159.0.8154.13</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">LibreOffice</td>
@@ -77,7 +77,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Microsoft WebView2 Runtime</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">vFri13Nov2026223517GMT</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">vThu19Nov2026212139GMT</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Norton Removal Tool</td>
@@ -93,7 +93,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">PDF24</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v11.34.0</td>
+      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v11.35.0</td>
     </tr>
     <tr>
       <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Unieuro Everyday Digital</td>
@@ -105,7 +105,7 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
     </tr>
   </tbody>
 </table>
-<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 10:15 del 18/11/2026</em></p>
+<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 13:24 del 22/11/2026</em></p>
 </div>
 
 <!-- AVVIOPC_VERSIONS_END -->
