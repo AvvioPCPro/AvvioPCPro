@@ -6,11 +6,16 @@ AvvioPC Pro prepara da solo i PC che vendiamo con il servizio "pronto all'uso": 
 
 Il sistema ha tre parti:
 
-| Parte | Dove si usa | Cosa fa |
-| :--- | :--- | :--- |
-| Web app | Smartphone dell'operatore | Registra seriale, account Microsoft e licenze del cliente |
-| Chiavetta USB | PC da preparare | Configura Windows e installa tutto senza interventi |
-| Demone di stampa | Un PC del banco servizi | Stampa il riepilogo da consegnare al cliente |
+<table align="center">
+  <thead>
+    <tr><th align="left">Parte</th><th align="left">Dove si usa</th><th align="left">Cosa fa</th></tr>
+  </thead>
+  <tbody>
+    <tr><td align="left">Web app</td><td align="left">Smartphone dell'operatore</td><td align="left">Registra seriale, account Microsoft e licenze del cliente</td></tr>
+    <tr><td align="left">Chiavetta USB</td><td align="left">PC da preparare</td><td align="left">Configura Windows e installa tutto senza interventi</td></tr>
+    <tr><td align="left">Demone di stampa</td><td align="left">Un PC del banco servizi</td><td align="left">Stampa il riepilogo da consegnare al cliente</td></tr>
+  </tbody>
+</table>
 
 ## Ultimi aggiornamenti
 
