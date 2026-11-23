@@ -1,40 +1,62 @@
-# **AvvioPC Pro: la nuova era del deployment**
+# AvvioPC Pro
 
-**AvvioPC Pro** rappresenta l'evoluzione definitiva del primordiale *AvvioPC*, nato originariamente come un semplice script DOS per configurare computer in ambito retail. L'obiettivo di quel piccolo script era di superare le limitazioni di pacchetti commerciali come Ninite o Chocolatey, prima fra tutte la necessità di lunghi download per l'installazione degli applicativi.
+AvvioPC Pro prepara da solo i PC che vendiamo con il servizio "pronto all'uso": installazione di Windows, programmi, account Microsoft, Office e antivirus. L'operatore registra i dati del cliente dallo smartphone, inserisce una chiavetta nel PC e lo accende. Il resto lo fa la chiavetta.
 
-La rustica semplicità del primo *AvvioPC* ha rappresentato anche il suo più grande limite: l'avvento di nuovi software da installare, l'assenza di funzioni di aggiornamento automatico o di reportistica integrata e -soprattutto- la necessità di eseguire manualmente molti passaggi (OOBE, antivirus, Office), secondo procedure che non tutti gli addetti vendita erano preparati a fare, ne hanno decretato il lento ma inesorabile declino.
+È il seguito del vecchio AvvioPC, uno script batch nato circa quattro anni fa per installare i programmi senza doverli scaricare ogni volta. Funzionava, ma molte cose restavano a mano: le schermate iniziali di Windows, l'antivirus, Office. E non tutti in negozio avevano il tempo o la pratica per farle. AvvioPC Pro serve a togliere questi passaggi.
 
-Per tutte queste ragioni è stato concepito l'ecosistema **AvvioPC Pro**, un installer definitivo e professionale, strutturato su tre moduli perfettamente integrati.
+Il sistema ha tre parti:
 
-L'adozione di questa nuova suite trasforma radicalmente l'operatività dell'area IT: l'automazione spinta azzera i tempi morti e i colli di bottiglia tecnici, garantendo un incremento immediato della produttività. Tutto questo si traduce in una drastica riduzione dei costi occulti di configurazione e in un servizio al cliente impeccabile, elevando gli standard qualitativi e l'efficienza dell'intera area vendita.
-
-| Modulo operativo | Piattaforma target | Obiettivo strategico e funzioni  chiave |
+| Parte | Dove si usa | Cosa fa |
 | :--- | :--- | :--- |
-| **1. web app front-end** | Smartphone / Mobile Browser | Barcode scanner per S/N, OCR per product key, Generazione MSA & PIN client-side |
-| **2. USB zero-touch** | Notebook / PC in lavorazione | Bypass OOBE, provisioning offline, installazione silent app & AV, auto-update Cloudflare |
-| **3. Demone di stampa** | PC in rete / Banco Servizi | Ricezione job da server, generazione automatica e stampa del report di livello professionale |
+| Web app | Smartphone dell'operatore | Registra seriale, account Microsoft e licenze del cliente |
+| Chiavetta USB | PC da preparare | Configura Windows e installa tutto senza interventi |
+| Demone di stampa | Un PC del banco servizi | Stampa il riepilogo da consegnare al cliente |
 
+## Ultimi aggiornamenti
 
-## **1. Il centro di controllo: una web app di front-end**
+<!-- AVVIOPC_NEWS_START -->
 
+**22/11/2026**
+- Wi-Fi corretto sui PC ARM: la rete viene trovata già prima del primo accesso, senza passaggi manuali
+- Antivirus dimostrativo: se la rimozione automatica fallisce, MCPR si apre guidato fino al captcha e il PC non viene dato per pronto finché non è rimosso
+- Firewall riaperto e controllato a inizio fase 3, con verifica della navigazione
+- Consegna sospesa (finestra rossa) se qualcosa non è a posto, con pulizia finale automatica al riavvio
+- Console più ordinata: niente titolo doppio, dimensione adatta allo schermo
+- Log salvati in automatico (senza dati personali) per l'analisi dei problemi
 
-Il fulcro operativo dell'interazione con il commesso è un'applicazione web PWA installabile su qualsiasi smartphone (Android o iOS), concepita per essere utilizzata in mobilità e in presenza del cliente prima del passaggio in cassa.
+<!-- AVVIOPC_NEWS_END -->
 
+## 1. La web app
+
+Si apre dal browser dello smartphone (Android o iPhone) e si può aggiungere alla schermata Home come un'app. Si usa al banco, con il cliente presente, prima di andare in cassa.
 
 ![Interfaccia Web App](images/web_app.jpg)
 
-* **Acquisizione dati avanzata:** E' stato implementato un lettore barcode tramite fotocamera per associare istantaneamente il serial number (S/N) del PC. Sono altresì presenti moduli OCR per acquisire i product key delle licenze ed iniettarli in modalità totalmente *unattended* durante il provisioning.
-* **Gestione account Microsoft (MSA):** E' presente un algoritmo di generazione automatizzata delle credenziali per i nuovi account MSA. L'operatività in presenza del cliente si rivela strategica e indispensabile per ricevere e confermare in tempo reale il PIN di verifica inviato da Microsoft sullo smartphone dell'utente.
+- **Seriale del PC:** si legge il codice a barre con la fotocamera.
+- **Licenze:** il product key di Office o dell'antivirus si legge dalla scheda con la fotocamera (OCR), senza ricopiarlo.
+- **Account Microsoft:** la web app propone indirizzo e password per il nuovo account. Microsoft manda un PIN di verifica all'email del cliente: per questo il cliente deve essere presente.
+- **Seriale abilitato:** dopo la registrazione il seriale resta abilitato per 24 ore. In questo tempo la chiavetta può scaricare i dati di quel PC.
 
-## **2. L'esecutore silente: una chiavetta USB zero-touch**
+I dati restano salvati. Se un PC torna in negozio per un problema o per un ripristino, la chiavetta lo riconosce dal seriale e lo rifà da capo.
 
-Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il supporto si genera e si aggiorna tramite un web Installer dedicato, quest'ultimo scaricabile ed installabile su un qualsiasi PC connesso ad Internet, ad esempio un notebook in esposizione.
+## 2. La chiavetta USB
+
+La chiavetta si crea e si aggiorna con un piccolo installer, da lanciare su un qualsiasi PC collegato a Internet (va bene anche un PC in esposizione).
 
 ![AvvioPC Pro USB key](images/work_in_progress.jpg)
 
-* **Configurazione automatica zero-touch:** È sufficiente collegare l'alimentazione al computer da configurare, inserire la chiavetta USB e accendere la macchina per saltare a piè pari tutte le innumerevoli schermate OOBE di Microsoft Windows 11.
-* **Provisioning offline integrato:** Il sistema esegue la disinstallazione pulita degli antivirus dimostrativi e procede all'installazione *unattended* della suite di applicazioni predefinite. Inietta l'account Microsoft precedentemente creato, gestisce l'attivazione di Microsoft Office, e configura l'antivirus commerciale selezionato (Unieuro Everyday Digital, Norton 360 o McAfee), forzando all'occorrenza gli aggiornamenti via Windows Update.
-* **Sincronizzazione via cloud autoaggiornante:** Al termine delle lavorazioni, il software verifica la presenza di nuove release del pacchetto sui server Cloudflare R2 e scarica autonomamente gli aggiornamenti (questa funzionalità prevede un bypass rapido in caso di consegne urgenti). Questo l'elenco dei programmi supportati e delle versioni attualmente installate:
+Come si usa: si collega l'alimentatore, si inserisce la chiavetta e si accende il PC. Da qui in avanti:
+
+- **Prima accensione:** la chiavetta salta le schermate iniziali di Windows, si collega al Wi-Fi del negozio, legge il seriale e scarica i dati registrati con la web app. Crea l'utente del cliente, senza password, e lo fa accedere da solo.
+- **Programmi:** installa i programmi della tabella qui sotto, nella versione giusta per il processore del PC (Intel/AMD oppure ARM).
+- **Account e licenze:** collega a Windows l'account Microsoft del cliente, prepara Office con il codice registrato e installa l'antivirus acquistato (Unieuro Everyday Digital, Norton 360 o McAfee).
+- **Antivirus dimostrativo:** lo rimuove. Se la rimozione automatica non riesce, apre lo strumento di rimozione del produttore e lo porta avanti da solo fino al captcha, che va scritto a mano. Finché l'antivirus dimostrativo è sul PC, il PC non viene dato per pronto.
+- **Windows Update:** installa gli aggiornamenti quando servono.
+- **Controllo finale:** se qualcosa non è a posto (antivirus dimostrativo ancora presente, connessione bloccata, account da verificare) compare una finestra rossa "PC non pronto per la consegna". Se è tutto a posto il PC si riavvia ed è pronto.
+
+Durante il lavoro una finestra in basso a destra mostra cosa sta facendo, una riga per passaggio. A fine lavoro i log vengono inviati in automatico, senza dati personali, così i problemi si possono analizzare anche quando in negozio non c'è tempo di salvarli.
+
+**Aggiornamenti:** a fine lavoro la chiavetta controlla se c'è un pacchetto nuovo e lo scarica da sola. Se c'è una consegna urgente si può saltare il controllo. Questi sono i programmi installati e le versioni attuali:
 
 <!-- AVVIOPC_VERSIONS_START -->
 
@@ -112,22 +134,19 @@ Il vero motore dell'automazione sul campo è la chiavetta USB di servizio. Il su
 
 ![AvvioPC Pro USB key](images/upgrade.jpg)
 
-* **Diagnostica e telemetria visiva:** Una finestra di console monitora l'avanzamento registrando ogni evento in appositi file di log. Eventuali interruzioni o anomalie vengono prontamente segnalate tramite maxi-banner visivi ad alto contrasto, leggibili anche a grande distanza nell'area di lavoro.
+## 3. Il demone di stampa
 
-## **3. La prova tangibile: un "demone" di stampa**
-
-A chiudere l'architettura della suite interviene un'utility (tecnicamente chiamata "demone") residente nella tray bar e autoaggiornante. E' facilmente installabile su un qualsiasi computer connesso alla rete locale del negozio.
+È un piccolo programma che si installa su un PC del negozio collegato alla rete. Non servono i privilegi di amministratore. Parte da solo all'accesso a Windows, resta come icona vicino all'orologio e si aggiorna da solo.
 
 ![Report cartaceo](images/final_report.jpg)
 
-* **Flusso di Lavoro asincrono:** Il demone lavora in background e in modo del tutto silente, rimanendo in ascolto delle chiamate provenienti dalla web app.
-* **Generazione automatica:** Non appena i dati di configurazione vengono caricati in cloud, il demone elabora le informazioni e manda automaticamente in stampa un report dettagliato, elegante e professionale.
-* **Trasparenza verso il cliente:** Tale report è concepito per essere consegnato al cliente al momento del ritiro, fornendo una prova tangibile, chiara e trasparente di tutte le attività tecniche svolte sul suo computer.
+Quando i dati di un PC sono pronti, stampa un foglio di riepilogo: cosa è stato installato, l'account Microsoft, le licenze. Il foglio si consegna al cliente insieme al PC, così sa cosa è stato fatto e ha i suoi dati di accesso.
 
 ---
 
-> **▲ Note di sviluppo & filosofia progettuale:**
-> Questo software è stato scritto dall'autore a titolo completamente gratuito e senza fini di lucro. Limitazioni nell'installazione di software commerciale derivano dall'impossibilità di acquistare a proprie spese licenze di test, costringendo a verifiche direttamente in produzione. Nonostante queste limitazioni, si è comunque cercato di realizzare un prodotto di livello professionale, robusto e dall'utilizzo intuitivo. Un prodotto nato e pensato direttamente sul campo... **da commesso, per i commessi**.
+> **Chi lo fa**
+> AvvioPC Pro lo scrivo da solo, nel tempo libero e senza compenso. Non ho licenze di prova dei programmi commerciali, quindi alcune parti (Office, antivirus) le posso controllare solo sui PC veri. Gli aggiornamenti li annuncio nel gruppo WhatsApp di supporto: se qualcosa non va, scrivetemi lì. Nato in negozio, da commesso, per i commessi.
 
-## Demo area
+## Demo
+
 [QR Code Signature Demo](https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://avviopcpro.github.io/AvvioPCPro/firma-demo.html?v=5.2)
