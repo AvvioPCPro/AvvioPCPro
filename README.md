@@ -21,6 +21,12 @@ Il sistema ha tre parti:
 
 <!-- AVVIOPC_NEWS_START -->
 
+**25/11/2026**
+- Fase 3: la ricerca della rete Wi-Fi viene ripetuta per 45 secondi (prima era una sola e, se non trovava la rete, la fase 3 proseguiva senza internet).
+- Account Microsoft con passkey: lo script sceglie da solo l'accesso con password. Il suo log ora resta nella cartella dei log e arriva su Drive.
+- Corretto il messaggio "CONSEGNA ANCORA SOSPESA" che ricompariva a ogni accesso anche senza antivirus dimostrativo installato, quando la consegna era stata sospesa per l'account Microsoft.
+- Importante: con gli ultimi aggiornamenti di Microsoft Defender la fase 3 veniva bloccata appena partita (falso allarme "Trojan LummaStealzer"), quindi niente account, Office e antivirus. Corretto: le esclusioni di Defender ora le aggiunge uno script separato.
+
 **22/11/2026**
 - Wi-Fi corretto sui PC ARM: la rete viene trovata già prima del primo accesso, senza passaggi manuali
 - Antivirus dimostrativo: se la rimozione automatica fallisce, MCPR si apre guidato fino al captcha e il PC non viene dato per pronto finché non è rimosso
@@ -65,74 +71,74 @@ Durante il lavoro una finestra in basso a destra mostra cosa sta facendo, una ri
 
 <!-- AVVIOPC_VERSIONS_START -->
 
-<div style="text-align: center; margin: 20px 0;">
-<table style="width: 100%; max-width: 800px; margin: 0 auto; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif; text-align: left;">
+<div align="center" style="text-align: center; margin: 20px 0;">
+<table align="center" style="width: 100%; max-width: 800px; margin: 0 auto; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif; text-align: left;">
   <thead>
     <tr style="background-color: #f6f8fa;">
-      <th style="padding: 12px; border: 1px solid #d0d7de; font-weight: 600; width: 70%;">Software</th>
-      <th style="padding: 12px; border: 1px solid #d0d7de; font-weight: 600; width: 30%;">Versione</th>
+      <th align="left" style="padding: 12px; border: 1px solid #d0d7de; font-weight: 600; width: 70%;">Software</th>
+      <th align="left" style="padding: 12px; border: 1px solid #d0d7de; font-weight: 600; width: 30%;">Versione</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">7-Zip</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v26.06</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de;">7-Zip</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v26.06</td>
     </tr>
     <tr>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Acrobat Reader</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v26.003.22110</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de;">Acrobat Reader</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v26.003.22110</td>
     </tr>
     <tr>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">AutoHotkey</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v2.0.32</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de;">AutoHotkey</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v2.0.32</td>
     </tr>
     <tr>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Firefox</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v160.0.1</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de;">Firefox</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v161.0</td>
     </tr>
     <tr>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Google Chrome</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v159.0.8154.13</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de;">Google Chrome</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v159.0.8154.34</td>
     </tr>
     <tr>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">LibreOffice</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v26.8.3</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de;">LibreOffice</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v26.8.3</td>
     </tr>
     <tr>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">McAfee Removal Tool</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">Ultima release CDN</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de;">McAfee Removal Tool</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">Ultima release CDN</td>
     </tr>
     <tr>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Microsoft WebView2 Runtime</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">vThu19Nov2026212139GMT</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de;">Microsoft WebView2 Runtime</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">vThu19Nov2026212139GMT</td>
     </tr>
     <tr>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Norton Removal Tool</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">Ultima release CDN</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de;">Norton Removal Tool</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">Ultima release CDN</td>
     </tr>
     <tr>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Notepad++</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v8.9.9.1</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de;">Notepad++</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v8.9.9.1</td>
     </tr>
     <tr>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Paint.Net</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v5.2</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de;">Paint.Net</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v5.2</td>
     </tr>
     <tr>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">PDF24</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v11.35.0</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de;">PDF24</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v11.35.0</td>
     </tr>
     <tr>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">Unieuro Everyday Digital</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">Ultima release CDN</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de;">Unieuro Everyday Digital</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">Ultima release CDN</td>
     </tr>
     <tr>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de;">VLC</td>
-      <td style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v3.0.24</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de;">VLC</td>
+      <td align="left" style="padding: 10px 12px; border: 1px solid #d0d7de; font-family: monospace;">v3.0.24</td>
     </tr>
   </tbody>
 </table>
-<p style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 13:24 del 22/11/2026</em></p>
+<p align="center" style="font-size: 0.9em; color: #57606a; margin-top: 10px;"><em>Dati aggiornati alle 10:16 del 25/11/2026</em></p>
 </div>
 
 <!-- AVVIOPC_VERSIONS_END -->
